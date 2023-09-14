@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@100;400&display=swap');
+
+        body {
+            background-color: rgb(255, 251, 251);
+            padding: 0;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        th,
+        td {
+            border: 1px solid #bdbbbb;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tbody {
+            background-color: #fff;
+        }
+
+        .btn-edit,
+        .btn-delete {
+            border-radius: 5px;
+            padding: 10px 15px;
+            background-color: #0b9aee;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-edit a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .btn-delete {
+            background-color: #e74c3c;
+        }
+
+        .btn-delete a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .pagination {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pagination button {
+            border-radius: 5px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: background-color 0.2s;
+        }
+
+        .pagination button:hover {
+            background-color: #2980b9;
+        }
+
+        #searchInput {
+            margin-top: 20px;
+            padding: 8px;
+            width: 10%;
+            font-size: 16px;
+            position: fixed;
+            left: 22%;
+            top: 50px;
+        }
+
+        .addUser {
+            background-color: #e9c307;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            padding: 8px;
+            width: 10%;
+            font-size: 16px;
+            position: fixed;
+            left: 10%;
+            top: 50px;
+            text-decoration: none;
+            color: white;
+            /* border: #a79021 solid 2px; */
+            border-radius: 5px;
+        }
+
+        button {
+            border: none;
+        }
+
+        /************** add data using excel ***************/
+
+        #addEcxcel {
+            position: fixed;
+            top: 10%;
+            right: 9%;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            width: 50%;
+            padding: 8px;
+            border: 1px solid #101010;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+
+        .addBtn {
+            width: 40%;
+            padding: 10px 16px;
+            background-color: #0988ea;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .addBtn:hover {
+            background-color: #066ac3;
+        }
+
+        .top {
+            height: 100px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <h1>PUMP DATA</h1>
+    </div>
+
+    <table>
+        <thead>
+
+            <th>S NO.</th>
+            <th>IMEI</th>
+            <th>VOLTAGE</th>
+            <th>CURRENT</th>
+            <th>POWER</th>
+            <th>FREQUENCY</th>
+            <th>TIMESTAMP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach((row,index)=> { %>
+                <tr>
+                    <td>
+                        <%= index +1 %>
+                    </td>
+                    <td>
+                        <%= row.IMEI %>
+                    </td>
+                    <td>
+                        <%= row.Voltage %>
+                    </td>
+                    <td>
+                        <%= row.Current %>
+                    </td>
+                    <td>
+                        <%= row.Power %>
+                    </td>
+                    <td>
+                        <%= row.Frequency %>
+                    </td>
+                    <td>
+                        <%= row.Date.toLocaleString() %>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+</body>
+
+</html>
